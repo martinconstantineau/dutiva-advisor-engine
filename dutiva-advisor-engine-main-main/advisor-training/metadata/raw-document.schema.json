@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dutiva.local/schemas/raw-document.schema.json",
+  "title": "Dutiva raw source document",
+  "type": "object",
+  "required": [
+    "title",
+    "source_url",
+    "jurisdiction",
+    "source_type",
+    "retrieved_at",
+    "effective_date",
+    "language",
+    "file_type",
+    "checksum",
+    "raw_text",
+    "raw_file_path"
+  ],
+  "properties": {
+    "title": { "type": "string", "minLength": 1 },
+    "source_url": { "type": "string", "minLength": 1 },
+    "jurisdiction": { "type": "string", "minLength": 1 },
+    "jurisdiction_id": { "type": ["string", "null"] },
+    "source_type": {
+      "type": "string",
+      "enum": [
+        "Law",
+        "Regulation",
+        "Government guide",
+        "Internal Dutiva template",
+        "Internal Dutiva policy",
+        "HR best-practice guidance",
+        "PR/internal communications guidance"
+      ]
+    },
+    "retrieved_at": { "type": "string", "minLength": 1 },
+    "effective_date": { "type": ["string", "null"] },
+    "language": { "type": "string", "minLength": 1 },
+    "file_type": {
+      "type": "string",
+      "enum": ["xml", "html", "markdown", "json", "template", "pdf"]
+    },
+    "checksum": { "type": "string", "pattern": "^[a-fA-F0-9]{64}$" },
+    "raw_text": { "type": "string", "minLength": 1 },
+    "raw_file_path": { "type": "string", "minLength": 1 },
+    "raw_file_base64": {
+      "type": "string",
+      "description": "Optional base64-encoded binary source file payload for binary formats such as PDF."
+    }
+  },
+  "additionalProperties": true
+}

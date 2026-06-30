@@ -1,0 +1,10 @@
+node_modules
+dist
+*.log
+.env
+coverage
+
+# Generated semantic-chunk index — large (~13 MB), regenerated on demand via
+# `npm run pipeline:semantic-chunks`, and not yet wired into runtime retrieval.
+# (data/advisor-guidance-index.json IS used at runtime and stays tracked.)
+data/advisor-semantic-chunks.json

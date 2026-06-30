@@ -1,0 +1,61 @@
+{
+  "generated_at": "2026-06-30T14:22:11.665Z",
+  "parser_version": "1.0.0",
+  "run_id": "2026-06-30T14:22:11.233Z-3a546bb4-b52d-456d-aa63-5a1a3340fdc7",
+  "files": [
+    {
+      "source_file": "advisor-training\\raw-laws\\canada\\federal\\acts\\H-6.xml",
+      "output_file": "advisor-training\\parsed\\H-6.provisions.json",
+      "language": "en",
+      "law_title": "Canadian Human Rights Act",
+      "record_count": 435,
+      "warning_count": 17,
+      "duplicate_text_count": 7,
+      "reference_count": 121,
+      "node_type_counts": {
+        "Section": 50,
+        "Paragraph": 143,
+        "Subsection": 219,
+        "Definition": 11,
+        "Subparagraph": 12
+      },
+      "parser_version": "1.0.0"
+    },
+    {
+      "source_file": "advisor-training\\raw-laws\\canada\\federal\\acts\\L-2.xml",
+      "output_file": "advisor-training\\parsed\\L-2.provisions.json",
+      "language": "en",
+      "law_title": "Canada Labour Code",
+      "record_count": 3106,
+      "warning_count": 257,
+      "duplicate_text_count": 96,
+      "reference_count": 973,
+      "node_type_counts": {
+        "Section": 303,
+        "Definition": 101,
+        "Paragraph": 1213,
+        "Subsection": 1315,
+        "Subparagraph": 174
+      },
+      "parser_version": "1.0.0"
+    },
+    {
+      "source_file": "advisor-training\\raw-laws\\canada\\federal\\regulations\\C.R.C.-c-986.xml",
+      "output_file": "advisor-training\\parsed\\C.R.C.-c-986.provisions.json",
+      "language": "en",
+      "law_title": "Canada Labour Standards Regulations",
+      "record_count": 315,
+      "warning_count": 23,
+      "duplicate_text_count": 11,
+      "reference_count": 117,
+      "node_type_counts": {
+        "Section": 24,
+        "Subsection": 84,
+        "Definition": 11,
+        "Paragraph": 163,
+        "Subparagraph": 33
+      },
+      "parser_version": "1.0.0"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dutiva.local/schemas/normalized-provision.schema.json",
+  "title": "Dutiva normalized provision record (pipeline output — normalize-provisions.ts)",
+  "description": "Schema for normalized provision records produced by normalize-provisions.ts. These are the input to build-guidance-layer.ts and are never consumed at runtime.",
+  "type": "object",
+  "required": [
+    "id",
+    "source_record_id",
+    "source_file",
+    "jurisdiction",
+    "language",
+    "law_title",
+    "citation",
+    "topic",
+    "risk_level",
+    "applies_to",
+    "text",
+    "status"
+  ],
+  "properties": {
+    "id": { "type": "string", "minLength": 1, "description": "Stable SHA-1 hex identifier" },
+    "source_record_id": { "type": "string", "minLength": 1 },
+    "source_file": { "type": "string", "minLength": 1 },
+    "jurisdiction": { "type": "string", "examples": ["Canada (Federal)"] },
+    "language": { "type": "string", "enum": ["en", "fr", "unknown"] },
+    "law_title": { "type": "string", "minLength": 1 },
+    "citation": { "type": "string" },
+    "section_number": { "type": ["string", "null"] },
+    "heading": { "type": ["string", "null"] },
+    "topic": { "type": "string" },
+    "topics": { "type": "array", "items": { "type": "string" } },
+    "risk_level": { "type": "string", "enum": ["low", "medium", "high"] },
+    "applies_to": {
+      "type": "array",
+      "items": { "type": "string", "enum": ["employer", "employee", "union", "regulator"] }
+    },
+    "text": { "type": "string" },
+    "plain_summary": { "type": ["string", "null"] },
+    "status": { "type": "string", "enum": ["active_or_current_unknown", "inactive_or_repealed"] },
+    "xml_path": { "type": ["string", "null"] },
+    "references": { "type": "array" },
+    "quality_warnings": { "type": "array", "items": { "type": "string" } },
+    "normalizer_version": { "type": ["string", "null"] },
+    "parser_version": { "type": ["string", "null"] },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "content_hash": { "type": ["string", "null"] }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

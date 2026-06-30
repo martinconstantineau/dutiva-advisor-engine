@@ -1,0 +1,63 @@
+{
+  "generated_at": "2026-06-30T14:22:14.622Z",
+  "guidance_version": "0.1.0",
+  "files": [
+    {
+      "guidance_version": "0.1.0",
+      "source_file": "advisor-training\\normalized\\C.R.C.-c-986.normalized.json",
+      "output_file": "advisor-training\\guidance\\C.R.C.-c-986.guidance.json",
+      "record_count": 315,
+      "high_risk_count": 14,
+      "escalation_count": 14,
+      "topic_counts": {
+        "Unclassified": 44,
+        "Definitions and Application": 20,
+        "Records and Notices": 24,
+        "Hiring": 101,
+        "Compensation": 50,
+        "Leave": 39,
+        "Termination": 12,
+        "Hours of Work": 19,
+        "Administration and Enforcement": 4,
+        "Harassment": 2
+      }
+    },
+    {
+      "guidance_version": "0.1.0",
+      "source_file": "advisor-training\\normalized\\H-6.normalized.json",
+      "output_file": "advisor-training\\guidance\\H-6.guidance.json",
+      "record_count": 435,
+      "high_risk_count": 404,
+      "escalation_count": 404,
+      "topic_counts": {
+        "Accommodation": 416,
+        "Hiring": 9,
+        "Compensation": 6,
+        "Harassment": 2,
+        "Records and Notices": 2
+      }
+    },
+    {
+      "guidance_version": "0.1.0",
+      "source_file": "advisor-training\\normalized\\L-2.normalized.json",
+      "output_file": "advisor-training\\guidance\\L-2.guidance.json",
+      "record_count": 3106,
+      "high_risk_count": 189,
+      "escalation_count": 189,
+      "topic_counts": {
+        "Unclassified": 1018,
+        "Definitions and Application": 360,
+        "Administration and Enforcement": 197,
+        "Hiring": 843,
+        "Termination": 55,
+        "Records and Notices": 175,
+        "Workplace Safety": 95,
+        "Compensation": 142,
+        "Harassment": 28,
+        "Accommodation": 13,
+        "Hours of Work": 27,
+        "Leave": 153
+      }
+    }
+  ]
+}

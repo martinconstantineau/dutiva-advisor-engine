@@ -1,0 +1,21 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "noEmit": true
+  },
+  "include": [
+    "src/**/*",
+    "advisor-training/**/*.test.ts",
+    "advisor-training/pipelines/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "coverage",
+    "advisor-training/raw-laws",
+    "advisor-training/parsed",
+    "advisor-training/normalized",
+    "advisor-training/guidance"
+  ]
+}

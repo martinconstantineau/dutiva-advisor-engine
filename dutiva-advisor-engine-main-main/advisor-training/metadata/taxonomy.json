@@ -1,0 +1,235 @@
+{
+  "version": "1.0.0",
+  "generated_at": "2026-04-30",
+  "topics": [
+    {
+      "id": "termination",
+      "label": "Termination",
+      "risk_level": "high",
+      "description": "Dismissal, layoff, severance, unjust dismissal, constructive dismissal, group termination",
+      "escalation_required": true,
+      "cla_parts": ["Part III, Division VIII"],
+      "cla_sections": ["s. 229", "s. 230", "s. 235", "s. 240", "s. 241", "s. 242", "s. 243", "s. 244", "s. 212", "s. 213", "s. 214"]
+    },
+    {
+      "id": "harassment",
+      "label": "Harassment",
+      "risk_level": "high",
+      "description": "Workplace harassment, sexual harassment, workplace violence, reprisal, investigation",
+      "escalation_required": true,
+      "cla_parts": ["Part II", "SOR/2020-130"],
+      "cla_sections": ["s. 122", "s. 125", "s. 126", "s. 240"]
+    },
+    {
+      "id": "accommodation",
+      "label": "Accommodation",
+      "risk_level": "high",
+      "description": "Disability, mental health, family status, religious accommodation, undue hardship, CHRA",
+      "escalation_required": true,
+      "cla_parts": ["CHRA s. 15"],
+      "cla_sections": ["CHRA s. 3", "CHRA s. 7", "CHRA s. 14", "CHRA s. 15"]
+    },
+    {
+      "id": "compensation",
+      "label": "Compensation",
+      "risk_level": "medium",
+      "description": "Wages, pay, salary, overtime pay, minimum wage, deductions, vacation pay, holiday pay",
+      "escalation_required": false,
+      "cla_parts": ["Part III, Division IV", "Part III, Division V"],
+      "cla_sections": ["s. 174", "s. 175", "s. 177", "s. 178", "s. 246"]
+    },
+    {
+      "id": "leave",
+      "label": "Leave",
+      "risk_level": "medium",
+      "description": "Maternity, parental, sick, compassionate care, bereavement, personal, family violence leave",
+      "escalation_required": false,
+      "cla_parts": ["Part III, Division VII"],
+      "cla_sections": ["s. 206", "s. 206.1", "s. 206.3", "s. 206.4", "s. 206.5", "s. 206.6", "s. 206.7", "s. 209", "s. 210", "s. 239"]
+    },
+    {
+      "id": "hiring",
+      "label": "Hiring",
+      "risk_level": "medium",
+      "description": "Employment contracts, probation, onboarding, offers, independent contractors vs. employees",
+      "escalation_required": false,
+      "cla_parts": ["Part I", "Part III"],
+      "cla_sections": ["s. 167"]
+    },
+    {
+      "id": "workplace-safety",
+      "label": "Workplace Safety",
+      "risk_level": "high",
+      "description": "Occupational health and safety, work refusal, hazards, injuries, safety committee, WHMIS",
+      "escalation_required": true,
+      "cla_parts": ["Part II"],
+      "cla_sections": ["s. 122", "s. 124", "s. 125", "s. 126", "s. 127", "s. 128", "s. 135", "s. 135.1"]
+    },
+    {
+      "id": "hours-of-work",
+      "label": "Hours of Work",
+      "risk_level": "medium",
+      "description": "Standard hours, maximum hours, overtime triggers, rest periods, shift scheduling, compressed work weeks",
+      "escalation_required": false,
+      "cla_parts": ["Part III, Division I"],
+      "cla_sections": ["s. 169", "s. 169.1", "s. 169.2", "s. 170", "s. 171", "s. 172", "s. 174"]
+    },
+    {
+      "id": "records-and-notices",
+      "label": "Records and Notices",
+      "risk_level": "low",
+      "description": "Employer record-keeping, required notices, pay statements, posting obligations",
+      "escalation_required": false,
+      "cla_parts": ["Part III, Division XI"],
+      "cla_sections": ["s. 252", "s. 253", "s. 254"]
+    },
+    {
+      "id": "unclassified",
+      "label": "Unclassified",
+      "risk_level": "low",
+      "description": "Provisions that do not match a primary topic keyword",
+      "escalation_required": false,
+      "cla_parts": [],
+      "cla_sections": []
+    }
+  ],
+  "risk_levels": [
+    {
+      "id": "high",
+      "label": "High Risk",
+      "description": "Situations that can result in legal proceedings, tribunal complaints, regulatory penalties, or reinstatement orders. Escalation to employment counsel is mandatory.",
+      "escalation_required": true
+    },
+    {
+      "id": "medium",
+      "label": "Medium Risk",
+      "description": "Situations with clear compliance obligations that require documentation and consistent application. Legal review recommended for complex cases.",
+      "escalation_required": false
+    },
+    {
+      "id": "low",
+      "label": "Low Risk",
+      "description": "Informational or administrative compliance obligations. Still verify current law before acting.",
+      "escalation_required": false
+    }
+  ],
+  "applies_to": [
+    {
+      "id": "employer",
+      "label": "Employer",
+      "description": "Applies to the employer or employer's agents (management, HR)"
+    },
+    {
+      "id": "employee",
+      "label": "Employee",
+      "description": "Applies to the employee"
+    },
+    {
+      "id": "union",
+      "label": "Union / Bargaining Agent",
+      "description": "Applies to a union or certified bargaining agent"
+    },
+    {
+      "id": "regulator",
+      "label": "Regulator / Inspector",
+      "description": "Applies to ESDC inspectors, safety officers, or the Canada Industrial Relations Board"
+    }
+  ],
+  "jurisdictions": [
+    {
+      "id": "canada-federal",
+      "label": "Canada (Federal)",
+      "primary_act": "Canada Labour Code (RSC 1985, c L-2)",
+      "human_rights_act": "Canadian Human Rights Act (RSC 1985, c H-6)",
+      "scope": "Federally regulated employers: banking, airlines, telecom, broadcasting, interprovincial transport, pipelines, federal Crown corporations",
+      "enforcement_body": "Employment and Social Development Canada (ESDC) — Labour Program",
+      "phase": "MVP"
+    },
+    {
+      "id": "ontario",
+      "label": "Ontario",
+      "primary_act": "Employment Standards Act, 2000 (S.O. 2000, c. 41)",
+      "human_rights_act": "Ontario Human Rights Code (RSO 1990, c H.19)",
+      "scope": "All Ontario employers not federally regulated",
+      "enforcement_body": "Ontario Ministry of Labour, Immigration, Training and Skills Development",
+      "phase": "Phase 2"
+    },
+    {
+      "id": "quebec",
+      "label": "Quebec",
+      "primary_act": "Act Respecting Labour Standards (CQLR c N-1.1)",
+      "human_rights_act": "Quebec Charter of Human Rights and Freedoms (CQLR c C-12)",
+      "scope": "All Quebec employers not federally regulated",
+      "enforcement_body": "Commission des normes, de l'équité, de la santé et de la sécurité du travail (CNESST)",
+      "phase": "Phase 2"
+    },
+    {
+      "id": "british-columbia",
+      "label": "British Columbia",
+      "primary_act": "Employment Standards Act (RSBC 1996, c. 113)",
+      "human_rights_act": "BC Human Rights Code (RSBC 1996, c. 210)",
+      "scope": "All BC employers not federally regulated",
+      "enforcement_body": "BC Employment Standards Branch",
+      "phase": "Phase 2"
+    },
+    {
+      "id": "alberta",
+      "label": "Alberta",
+      "primary_act": "Employment Standards Code (RSA 2000, c. E-9)",
+      "human_rights_act": "Alberta Human Rights Act (RSA 2000, c A-25.5)",
+      "scope": "All Alberta employers not federally regulated",
+      "enforcement_body": "Alberta Employment Standards",
+      "phase": "Phase 2"
+    }
+  ],
+  "sources": [
+    {
+      "id": "clc-l2",
+      "label": "Canada Labour Code",
+      "short_title": "CLC",
+      "statute_id": "L-2",
+      "file": "raw-laws/canada/federal/acts/L-2.xml",
+      "source_repo": "justicecanada/laws-lois-xml",
+      "source_path": "eng/acts/L-2.xml",
+      "jurisdiction": "canada-federal",
+      "type": "act",
+      "phase": "MVP"
+    },
+    {
+      "id": "chra-h6",
+      "label": "Canadian Human Rights Act",
+      "short_title": "CHRA",
+      "statute_id": "H-6",
+      "file": "raw-laws/canada/federal/acts/H-6.xml",
+      "source_repo": "justicecanada/laws-lois-xml",
+      "source_path": "eng/acts/H-6.xml",
+      "jurisdiction": "canada-federal",
+      "type": "act",
+      "phase": "MVP"
+    },
+    {
+      "id": "clsr-c986",
+      "label": "Canada Labour Standards Regulations",
+      "short_title": "CLSR",
+      "statute_id": "C.R.C.,_c._986",
+      "file": "raw-laws/canada/federal/regulations/C.R.C.-c-986.xml",
+      "source_repo": "justicecanada/laws-lois-xml",
+      "source_path": "eng/regulations/C.R.C.,_c._986.xml",
+      "jurisdiction": "canada-federal",
+      "type": "regulation",
+      "phase": "MVP"
+    },
+    {
+      "id": "whvpr-sor2020-130",
+      "label": "Work Place Harassment and Violence Prevention Regulations",
+      "short_title": "WHVPR",
+      "statute_id": "SOR/2020-130",
+      "file": null,
+      "source_repo": "justicecanada/laws-lois-xml",
+      "source_path": "eng/regulations/SOR-2020-130.xml",
+      "jurisdiction": "canada-federal",
+      "type": "regulation",
+      "phase": "Phase 1b — pending download"
+    }
+  ]
+}

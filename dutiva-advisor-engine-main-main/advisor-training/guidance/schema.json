@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dutiva.local/schemas/guidance-card-pipeline.schema.json",
+  "title": "Dutiva guidance card (pipeline output — build-guidance-layer.ts)",
+  "description": "Schema for guidance cards produced by the advisor-training pipeline (build-guidance-layer.ts). These are the runtime input to src/retrieval/generatedGuidanceLoader.ts. For the FUTURE human-curated review layer see advisor-training/metadata/guidance-card.schema.json.",
+  "type": "object",
+  "required": [
+    "id",
+    "source_normalized_id",
+    "source_record_id",
+    "source_file",
+    "guidance_version",
+    "jurisdiction",
+    "language",
+    "topic",
+    "topics",
+    "risk_level",
+    "applies_to",
+    "law_title",
+    "citation",
+    "status",
+    "user_questions",
+    "advisor_answer_en",
+    "advisor_answer_fr_placeholder",
+    "legal_basis",
+    "guardrails",
+    "retrieval",
+    "metadata"
+  ],
+  "properties": {
+    "id": { "type": "string", "minLength": 1, "description": "Stable SHA-1 hex identifier for this guidance card" },
+    "source_normalized_id": { "type": "string", "minLength": 1 },
+    "source_record_id": { "type": "string", "minLength": 1 },
+    "source_file": { "type": "string", "minLength": 1 },
+    "guidance_version": { "type": "string", "minLength": 1 },
+    "jurisdiction": { "type": "string", "minLength": 1, "examples": ["Canada (Federal)"] },
+    "language": { "type": "string", "enum": ["en", "fr", "unknown"] },
+    "topic": { "type": "string", "minLength": 1 },
+    "topics": { "type": "array", "items": { "type": "string" } },
+    "risk_level": { "type": "string", "enum": ["low", "medium", "high"] },
+    "applies_to": {
+      "type": "array",
+      "items": { "type": "string", "enum": ["employer", "employee", "union", "regulator"] }
+    },
+    "law_title": { "type": "string", "minLength": 1 },
+    "citation": { "type": "string", "minLength": 1 },
+    "status": { "type": "string", "enum": ["active_or_current_unknown", "inactive_or_repealed"] },
+    "user_questions": { "type": "array", "items": { "type": "string" } },
+    "advisor_answer_en": { "type": "string", "minLength": 1 },
+    "advisor_answer_fr_placeholder": { "type": "string", "minLength": 1 },
+    "legal_basis": { "type": "array", "items": { "type": "string" } },
+    "guardrails": {
+      "type": "object",
+      "required": ["disclaimer_en", "disclaimer_fr", "requires_escalation", "do_not_present_as_legal_advice", "verify_current_law_before_use"],
+      "properties": {
+        "disclaimer_en": { "type": "string" },
+        "disclaimer_fr": { "type": "string" },
+        "requires_escalation": { "type": "boolean" },
+        "do_not_present_as_legal_advice": { "type": "boolean" },
+        "verify_current_law_before_use": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "retrieval": {
+      "type": "object",
+      "required": ["search_text"],
+      "properties": {
+        "search_text": { "type": "string" },
+        "references": { "type": "array" },
+        "xml_path": { "type": ["string", "null"] }
+      },
+      "additionalProperties": true
+    },
+    "metadata": {
+      "type": "object",
+      "required": ["quality_warnings"],
+      "properties": {
+        "normalizer_version": { "type": ["string", "null"] },
+        "parser_version": { "type": ["string", "null"] },
+        "quality_warnings": { "type": "array", "items": { "type": "string" } },
+        "source_content_hash": { "type": ["string", "null"] }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,244 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dutiva.local/schemas/generated-guidance-card.schema.json",
+  "title": "Dutiva generated guidance card",
+  "description": "Canonical schema for guidance cards emitted by advisor-training/pipelines/build-guidance-layer.ts. These cards are the output of the source-law ingestion pipeline and the input to the runtime retrieval layer via data/advisor-guidance-index.json. Do NOT confuse this with advisor-training/metadata/curated-review-card.schema.json, which is for the future human-curated card review layer.",
+  "type": "object",
+  "required": [
+    "id",
+    "source_normalized_id",
+    "source_record_id",
+    "source_file",
+    "guidance_version",
+    "jurisdiction",
+    "language",
+    "topic",
+    "topics",
+    "risk_level",
+    "applies_to",
+    "law_title",
+    "citation",
+    "status",
+    "user_questions",
+    "advisor_answer_en",
+    "advisor_answer_fr_placeholder",
+    "legal_basis",
+    "guardrails",
+    "retrieval",
+    "metadata"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 24,
+      "maxLength": 24,
+      "description": "Stable SHA-1-derived 24-character hex ID for this guidance card."
+    },
+    "source_normalized_id": {
+      "type": "string",
+      "minLength": 24,
+      "maxLength": 24,
+      "description": "ID of the normalized provision record that produced this card."
+    },
+    "source_record_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "ID of the original parsed provision record."
+    },
+    "source_file": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Relative path to the source normalized JSON file."
+    },
+    "guidance_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "SemVer of the guidance layer that produced this card."
+    },
+    "jurisdiction": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Human-readable jurisdiction label, e.g. 'Canada (Federal)'. For runtime use, the adapter maps this to the engine code FEDERAL, ON, QC, etc."
+    },
+    "language": {
+      "type": "string",
+      "enum": ["en", "fr", "unknown"],
+      "description": "Language of the source provision. 'unknown' triggers a quality_warning."
+    },
+    "topic": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Primary topic classification, e.g. 'Termination', 'Harassment', 'Leave'."
+    },
+    "topics": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "description": "All topic classifications that scored above zero for this provision."
+    },
+    "risk_level": {
+      "type": "string",
+      "enum": ["low", "medium", "high"],
+      "description": "Risk level derived from topic classification. High-risk topics include Termination, Harassment, Accommodation, Workplace Safety."
+    },
+    "applies_to": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["employer", "employee", "union", "regulator"]
+      },
+      "description": "Inferred roles that this provision applies to."
+    },
+    "law_title": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Short title of the source law, e.g. 'Canada Labour Code'. Must prefer short title over long descriptive title."
+    },
+    "citation": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Full citation string, e.g. 'Canada Labour Code, s. 230(1)'. Must not be a bare subsection like 's. (a)' or 's. (3)' without parent section context."
+    },
+    "status": {
+      "type": "string",
+      "enum": ["active_or_current_unknown", "inactive_or_repealed"],
+      "description": "Whether this provision is active or has been repealed/inactive. Runtime loaders must exclude inactive_or_repealed records by default."
+    },
+    "user_questions": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 },
+      "description": "Template HR questions this card answers. Drawn from QUESTION_TEMPLATES by topic."
+    },
+    "advisor_answer_en": {
+      "type": "string",
+      "minLength": 1,
+      "description": "English advisor answer. This is the primary runtime content field. Must be plain prose — no raw Markdown bold/italic/headings/bullet hyphens."
+    },
+    "advisor_answer_fr_placeholder": {
+      "type": "string",
+      "minLength": 1,
+      "description": "French placeholder text. NOT validated and NOT user-facing. Must never be exposed in public responses. Replaced by validated French text in the future bilingual layer."
+    },
+    "legal_basis": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "description": "Ordered list of citation strings for this card's legal basis. Typically [citation, law_title]."
+    },
+    "guardrails": {
+      "type": "object",
+      "required": [
+        "disclaimer_en",
+        "disclaimer_fr",
+        "requires_escalation",
+        "do_not_present_as_legal_advice",
+        "verify_current_law_before_use"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "disclaimer_en": { "type": "string", "minLength": 1 },
+        "disclaimer_fr": { "type": "string", "minLength": 1 },
+        "requires_escalation": { "type": "boolean" },
+        "do_not_present_as_legal_advice": { "type": "boolean" },
+        "verify_current_law_before_use": { "type": "boolean" }
+      }
+    },
+    "retrieval": {
+      "type": "object",
+      "required": ["search_text", "references"],
+      "additionalProperties": true,
+      "properties": {
+        "search_text": {
+          "type": "string",
+          "description": "Combined search text for keyword retrieval. Maps to the runtime GuidanceItem.search_text field."
+        },
+        "references": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "raw": { "type": "string" },
+              "target_label": { "type": "string" },
+              "index": { "type": "number" }
+            }
+          }
+        },
+        "xml_path": {
+          "type": ["string", "null"],
+          "description": "XPath-like path to the source node in the original XML."
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "required": ["quality_warnings"],
+      "additionalProperties": true,
+      "properties": {
+        "normalizer_version": { "type": ["string", "null"] },
+        "parser_version": { "type": ["string", "null"] },
+        "quality_warnings": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Quality warnings from parsing and normalization. The runtime adapter maps this to GuidanceItem.qualityWarnings."
+        },
+        "source_content_hash": { "type": ["string", "null"] }
+      }
+    },
+    "embedding_id": {
+      "type": "string",
+      "minLength": 24,
+      "maxLength": 24,
+      "description": "Optional. Stable 24-char hex ID for the embedding record. Added by build-guidance-index-keyword.ts or build-guidance-embeddings.ts when the card is enriched into the guidance index."
+    },
+    "embedding_text": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Optional. Text used for embedding/indexing this card. Added by the index pipeline. Not part of the base guidance layer output."
+    },
+    "embedding": {
+      "type": "array",
+      "items": { "type": "number" },
+      "description": "Optional. Vector embedding of the card's embedding_text. Added by build-guidance-embeddings.ts (local Xenova variant) or build-guidance-embeddings-hf.ts (HF Inference API). Absent in keyword-only indexes."
+    }
+  },
+  "examples": [
+    {
+      "id": "9be6dea613e94eecc1ff90ba",
+      "source_normalized_id": "00354d7ebf24a6f98d40b95e",
+      "source_record_id": "2bc95d0ff6cb22b5ae27f88c",
+      "source_file": "advisor-training/normalized/C.R.C.-c-986.normalized.json",
+      "guidance_version": "0.1.0",
+      "jurisdiction": "Canada (Federal)",
+      "language": "en",
+      "topic": "Leave",
+      "topics": ["Leave"],
+      "risk_level": "medium",
+      "applies_to": ["employer", "employee"],
+      "law_title": "Canada Labour Code",
+      "citation": "Canada Labour Code, s. 230(1)",
+      "status": "active_or_current_unknown",
+      "user_questions": ["What leave obligations apply?"],
+      "advisor_answer_en": "Moderate-risk issue. Review the legal source, document your steps, and apply the rule consistently. Topic: Leave. Based on Canada Labour Code, s. 230(1), the relevant rule or source text indicates: ...",
+      "advisor_answer_fr_placeholder": "Vérifiez les faits, la juridiction applicable et les documents internes avant d'agir. Sujet : Leave. Source : Canada Labour Code, s. 230(1). Résumé français complet à générer lors de la couche bilingue validée.",
+      "legal_basis": ["Canada Labour Code, s. 230(1)", "Canada Labour Code"],
+      "guardrails": {
+        "disclaimer_en": "This is general HR compliance guidance, not legal advice. For high-risk matters, consult a qualified employment lawyer or HR professional.",
+        "disclaimer_fr": "Il s'agit de renseignements généraux en conformité RH, et non de conseils juridiques. Pour les situations à risque élevé, consultez un avocat en droit de l'emploi ou un professionnel RH qualifié.",
+        "requires_escalation": false,
+        "do_not_present_as_legal_advice": true,
+        "verify_current_law_before_use": true
+      },
+      "retrieval": {
+        "search_text": "Leave Canada Labour Code Canada Labour Code, s. 230(1) ...",
+        "references": [],
+        "xml_path": "Document/Act[0]/Body[0]/Part[2]/Division[7]/Section[0]"
+      },
+      "metadata": {
+        "normalizer_version": "0.1.0",
+        "parser_version": "1.0.0",
+        "quality_warnings": [],
+        "source_content_hash": "abc123..."
+      }
+    }
+  ]
+}

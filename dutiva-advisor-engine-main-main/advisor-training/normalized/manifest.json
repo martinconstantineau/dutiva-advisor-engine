@@ -1,0 +1,72 @@
+{
+  "generated_at": "2026-06-30T14:22:13.275Z",
+  "normalizer_version": "0.1.0",
+  "files": [
+    {
+      "normalizer_version": "0.1.0",
+      "source_file": "advisor-training\\parsed\\C.R.C.-c-986.provisions.json",
+      "output_file": "advisor-training\\normalized\\C.R.C.-c-986.normalized.json",
+      "record_count": 315,
+      "topic_counts": {
+        "Unclassified": 44,
+        "Definitions and Application": 20,
+        "Records and Notices": 24,
+        "Hiring": 101,
+        "Compensation": 50,
+        "Leave": 39,
+        "Termination": 12,
+        "Hours of Work": 19,
+        "Administration and Enforcement": 4,
+        "Harassment": 2
+      },
+      "risk_counts": {
+        "low": 88,
+        "medium": 213,
+        "high": 14
+      }
+    },
+    {
+      "normalizer_version": "0.1.0",
+      "source_file": "advisor-training\\parsed\\H-6.provisions.json",
+      "output_file": "advisor-training\\normalized\\H-6.normalized.json",
+      "record_count": 435,
+      "topic_counts": {
+        "Accommodation": 416,
+        "Hiring": 9,
+        "Compensation": 6,
+        "Harassment": 2,
+        "Records and Notices": 2
+      },
+      "risk_counts": {
+        "high": 404,
+        "medium": 15,
+        "low": 16
+      }
+    },
+    {
+      "normalizer_version": "0.1.0",
+      "source_file": "advisor-training\\parsed\\L-2.provisions.json",
+      "output_file": "advisor-training\\normalized\\L-2.normalized.json",
+      "record_count": 3106,
+      "topic_counts": {
+        "Unclassified": 1018,
+        "Definitions and Application": 360,
+        "Administration and Enforcement": 197,
+        "Hiring": 843,
+        "Termination": 55,
+        "Records and Notices": 175,
+        "Workplace Safety": 95,
+        "Compensation": 142,
+        "Harassment": 28,
+        "Accommodation": 13,
+        "Hours of Work": 27,
+        "Leave": 153
+      },
+      "risk_counts": {
+        "low": 1556,
+        "medium": 1361,
+        "high": 189
+      }
+    }
+  ]
+}

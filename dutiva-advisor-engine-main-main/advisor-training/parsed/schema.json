@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dutiva.local/schemas/parsed-provision.schema.json",
+  "title": "Dutiva parsed provision record (pipeline output — parse-laws-lois-xml.ts)",
+  "description": "Schema for provision records produced by parse-laws-lois-xml.ts. These are the input to normalize-provisions.ts and are never consumed at runtime.",
+  "type": "object",
+  "required": [
+    "id",
+    "source_file",
+    "jurisdiction",
+    "language",
+    "text"
+  ],
+  "properties": {
+    "id": { "type": "string", "minLength": 1, "description": "Stable SHA-1 hex identifier" },
+    "source_file": { "type": "string", "minLength": 1 },
+    "section_number": { "type": ["string", "null"] },
+    "section_label": { "type": ["string", "null"] },
+    "heading": { "type": ["string", "null"] },
+    "marginal_note": { "type": ["string", "null"] },
+    "language": { "type": "string", "enum": ["en", "fr", "unknown"] },
+    "jurisdiction": { "type": "string", "examples": ["Canada (Federal)"] },
+    "text": { "type": "string" },
+    "xml_path": { "type": ["string", "null"] },
+    "is_repealed": { "type": "boolean" },
+    "references": { "type": "array" },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "parser_version": { "type": ["string", "null"] },
+        "content_hash": { "type": ["string", "null"] }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

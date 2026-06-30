@@ -1,0 +1,49 @@
+{
+  "name": "dutiva-advisor-engine",
+  "version": "0.1.0",
+  "description": "Qwen-powered Canadian HR compliance advisor engine with bilingual (EN/FR) support",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node src/index.ts",
+    "start": "node dist/index.js",
+    "lint": "cross-env ESLINT_USE_FLAT_CONFIG=false eslint src --ext .ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "evals": "ts-node evals/advisorRegressionCases.ts && ts-node evals/screenshotRegressions.ts && ts-node evals/webSearchEvals.ts",
+    "pipeline:parse": "ts-node --project tsconfig.pipelines.json advisor-training/pipelines/parse-laws-lois-xml.ts",
+    "pipeline:normalize": "ts-node --project tsconfig.pipelines.json advisor-training/pipelines/normalize-provisions.ts",
+    "pipeline:guidance": "ts-node --project tsconfig.pipelines.json advisor-training/pipelines/build-guidance-layer.ts",
+    "pipeline:index": "ts-node --project tsconfig.pipelines.json advisor-training/pipelines/build-guidance-index-keyword.ts",
+    "pipeline:embed": "ts-node --project tsconfig.pipelines.json advisor-training/pipelines/build-guidance-embeddings.ts",
+    "pipeline:embed:hf": "ts-node --project tsconfig.pipelines.json advisor-training/pipelines/build-guidance-embeddings-hf.ts",
+    "pipeline:semantic-chunks": "ts-node --project tsconfig.pipelines.json advisor-training/pipelines/build-semantic-chunk-index.ts",
+    "pipeline:all": "npm run pipeline:parse && npm run pipeline:normalize && npm run pipeline:guidance && npm run pipeline:index"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.4.0",
+    "helmet": "^7.1.0",
+    "openai": "^4.47.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.14.2",
+    "@typescript-eslint/eslint-plugin": "^7.13.0",
+    "@typescript-eslint/parser": "^7.13.0",
+    "@vitest/coverage-v8": "^3.2.6",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.57.0",
+    "fast-xml-parser": "^5.9.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5",
+    "vitest": "^3.2.6"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "version": "1.0.0",
+  "last_reviewed_at": "2026-06-01",
+  "description": "Canonical jurisdiction metadata for the Dutiva data pipeline, Advisor retrieval, and Generator handoff.",
+  "initial_release_ids": [
+    "federal",
+    "ontario",
+    "quebec",
+    "remote_federal"
+  ],
+  "coming_soon_ids": [
+    "alberta_coming_soon",
+    "british_columbia_coming_soon"
+  ],
+  "jurisdictions": [
+    {
+      "id": "federal",
+      "label": "Federal",
+      "display_name": "Federal",
+      "engine_code": "FEDERAL",
+      "status": "active",
+      "scope": "Federally regulated Canadian employers under federal employment compliance sources.",
+      "aliases": [
+        "federal",
+        "federal canada",
+        "federal clc",
+        "canada federal",
+        "canada (federal)",
+        "fed"
+      ],
+      "primary_sources": [
+        "law-canada-federal-l2",
+        "law-canada-federal-h6",
+        "reg-canada-federal-crc-c-986"
+      ]
+    },
+    {
+      "id": "ontario",
+      "label": "Ontario",
+      "display_name": "Ontario",
+      "engine_code": "ON",
+      "status": "active",
+      "scope": "Ontario provincial employment standards and HR compliance metadata.",
+      "aliases": [
+        "ontario",
+        "on",
+        "ontario canada",
+        "ontario-canada",
+        "canada ontario"
+      ],
+      "primary_sources": [
+        "law-ontario-esa-2000",
+        "guide-ontario-esa"
+      ]
+    },
+    {
+      "id": "quebec",
+      "label": "Quebec",
+      "display_name": "Quebec",
+      "engine_code": "QC",
+      "status": "active",
+      "scope": "Quebec labour standards, civil-law employment context, and French-language compliance metadata.",
+      "aliases": [
+        "quebec",
+        "quebec canada",
+        "quebec-canada",
+        "qc"
+      ],
+      "primary_sources": [
+        "law-quebec-labour-standards",
+        "law-quebec-charter-french-language"
+      ]
+    },
+    {
+      "id": "remote_federal",
+      "label": "Remote (Federal)",
+      "display_name": "Remote/Federal",
+      "engine_code": "FEDERAL",
+      "status": "active",
+      "scope": "Remote work only when the employer or work relationship is federally regulated.",
+      "aliases": [
+        "remote federal",
+        "remote/federal",
+        "remote (federal)",
+        "remote_federal",
+        "remote-fed",
+        "remote federally regulated"
+      ],
+      "primary_sources": [
+        "law-canada-federal-l2",
+        "reg-canada-federal-crc-c-986"
+      ]
+    },
+    {
+      "id": "alberta_coming_soon",
+      "label": "Alberta",
+      "display_name": "Alberta",
+      "engine_code": "AB",
+      "status": "coming_soon",
+      "scope": "Tracked for future expansion; not active initial-release coverage.",
+      "aliases": [
+        "alberta",
+        "ab",
+        "alberta canada",
+        "alberta-canada"
+      ],
+      "primary_sources": []
+    },
+    {
+      "id": "british_columbia_coming_soon",
+      "label": "British Columbia",
+      "display_name": "British Columbia",
+      "engine_code": "BC",
+      "status": "coming_soon",
+      "scope": "Tracked for future expansion; not active initial-release coverage.",
+      "aliases": [
+        "british columbia",
+        "bc",
+        "b.c.",
+        "british-columbia",
+        "british columbia canada"
+      ],
+      "primary_sources": []
+    }
+  ]
+}
