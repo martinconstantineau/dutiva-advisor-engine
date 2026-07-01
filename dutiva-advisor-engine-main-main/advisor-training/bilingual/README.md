@@ -2,7 +2,28 @@
 
 ## Current State
 
-The Dutiva Advisor MVP operates in **English only**. The guidance pipeline generates a French placeholder field (`advisor_answer_fr_placeholder`) for every guidance card, but these placeholders are **not validated** and must not be presented to users.
+The runtime is **bilingual for validated content**. A guidance item can carry both
+English and French text (`content` / `content_fr`, `title` / `title_fr`,
+`advisor_answer_en` / `advisor_answer_fr`), and `src/bilingual/localizeGuidance.ts`
+selects by locale: for a `locale: 'fr'` request the engine serves the **validated
+French** text and, when none exists, **falls back to English** — never a placeholder.
+The selection flows through the LLM prompt (`buildAdvisorPrompt`), the deterministic
+fallbacks, and the workspace labels.
+
+Where validated French comes from today:
+
+- **Curated ON/QC entries** in `src/retrieval/retrieveGuidance.ts` are authored in both
+  languages (Québec, the francophone jurisdiction, is fully bilingual; Ontario has
+  bilingual parity).
+- **French-language source records** in the generated pipeline: `build-guidance-layer.ts`
+  emits a real `advisor_answer_fr` (via `makeFrenchAnswer`) for any record whose language
+  is French, and the adapter promotes it to `content_fr`. The current federal corpus is
+  English-only, so those cards fall back to English until French source XML is ingested
+  (see `advisor-training/PROVINCIAL_INGESTION.md`).
+
+The pipeline still emits `advisor_answer_fr_placeholder` for English-only records; that
+placeholder is **never** promoted to `content_fr` (the adapter guards against the
+placeholder marker) and is never shown to users.
 
 ---
 

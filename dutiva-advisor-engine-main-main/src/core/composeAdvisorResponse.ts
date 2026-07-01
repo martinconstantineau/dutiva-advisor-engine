@@ -26,6 +26,7 @@ import { classifyScopeBoundary, formatScopeBoundaryResponse } from '../safety/cl
 import { validateRawStringCitation, reconcileRawCitation } from '../retrieval/citationValidation';
 import { getPlaybookForIntent } from '../playbooks';
 import { getQueryTopicCategories } from '../retrieval/topicClassification';
+import { localizedContent, localizedTitle } from '../bilingual/localizeGuidance';
 import { ScoredGuidanceItem, GuidanceCategory } from '../retrieval/guidanceTypes';
 import { runWebSearch } from '../webSearch/webSearchProvider';
 import { getWebSearchConfig, isWebSearchConfigured } from '../webSearch/webSearchConfig';
@@ -473,7 +474,7 @@ function buildWorkspace(
   let retrievedItems: AdvisorRetrievedGuidanceItem[] | undefined;
   if (route.retrievalAllowed && retrievedGuidance.length > 0) {
     retrievedItems = retrievedGuidance.map((g) => ({
-      topic: cleanLabel(g.title),
+      topic: cleanLabel(localizedTitle(g, ctx.locale)),
       matchLabel: scoreToMatchLabel(g.score),
       jurisdiction: g.province !== 'ALL' ? String(g.province) : undefined,
       qualityWarnings: [],
@@ -647,10 +648,13 @@ function buildDeterministicFallback(
       (g) => g.province === 'ALL' || g.province === prov,
     );
 
+    // Serve validated French content/title when the response is in French.
+    const topTitle = topItem ? localizedTitle(topItem, ctx.locale) : '';
+    const topContent = topItem ? localizedContent(topItem, ctx.locale) : '';
     const guidanceSummary = topItem
       ? (isEn
-        ? ` Based on available guidance: ${topItem.title} — ${topItem.content.slice(0, 200)}${topItem.content.length > 200 ? '...' : ''}`
-        : ` D'après les informations disponibles: ${topItem.title} — ${topItem.content.slice(0, 200)}${topItem.content.length > 200 ? '...' : ''}`)
+        ? ` Based on available guidance: ${topTitle} — ${topContent.slice(0, 200)}${topContent.length > 200 ? '...' : ''}`
+        : ` D'après les informations disponibles : ${topTitle} — ${topContent.slice(0, 200)}${topContent.length > 200 ? '...' : ''}`)
       : '';
 
     const missingFactsNote = askTerminationFacts

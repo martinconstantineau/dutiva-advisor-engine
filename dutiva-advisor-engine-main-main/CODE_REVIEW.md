@@ -10,7 +10,7 @@ safety layer, retrieval/citation pipeline, web-search module, and the
 | --- | --- |
 | `npx tsc` (build) | ✅ clean |
 | `npm run lint` | ✅ clean |
-| `npm test` | ✅ 730 tests / 33 files passing |
+| `npm test` | ✅ 743 tests / 35 files passing |
 | `npm audit` | ✅ 0 findings (from prior pass) |
 
 This is a well-engineered codebase. The gating philosophy (every sensitive field has
@@ -165,10 +165,31 @@ accurate). A few targeted substantive keywords were also added for rate/record
 provisions. Result on regeneration: Unclassified 1575 → 983 of 3760, with the residue
 being genuine fragment sub-clauses.
 
+### ON/QC groundwork + proper bilingualism — added
+Laid the infrastructure for provincial support and made the runtime genuinely bilingual:
+- **Bilingual data model end-to-end.** `GuidanceItem` gained `content_fr` / `title_fr` /
+  `advisor_answer_fr`; `src/bilingual/localizeGuidance.ts` (which finally wires in the
+  previously-dead `frenchTerminology` + `locale` primitives) selects text by locale and
+  falls back to English — never a placeholder. Selection flows through `buildAdvisorPrompt`,
+  the deterministic fallbacks, and workspace labels.
+- **Curated ON/QC content is bilingual.** All 8 Québec (francophone — French-first) and
+  all 8 Ontario curated entries in `retrieveGuidance.ts` now carry validated French.
+- **Jurisdiction-aware ingestion.** `parse-laws-lois-xml.ts` no longer hardcodes federal;
+  `advisor-training/pipelines/jurisdiction.ts` infers jurisdiction + source from the
+  raw-laws path (federal/ontario/quebec), and `build-guidance-layer.ts` emits a real
+  `advisor_answer_fr` for French-language source records (adapter promotes it to
+  `content_fr`).
+- **Scaffolding.** `raw-laws/canada/{ontario,quebec}/` directories with source READMEs,
+  `advisor-training/PROVINCIAL_INGESTION.md`, updated `source-registry.json` notes, and an
+  updated bilingual README. Tests: `bilingualGuidance.test.ts`, `jurisdiction.test.ts`.
+
 ## Noted (remaining)
 
 - **Deep automated provincial statute ingestion** (ON/QC and beyond) — the larger,
-  near-term effort tracked in `source-registry.json` as `planned`. Needs provincial
+  near-term effort. The pipeline is now jurisdiction-aware and bilingual-ready; what
+  remains is dropping in the e-Laws / LégisQuébec XML and running `pipeline:all` (see
+  `advisor-training/PROVINCIAL_INGESTION.md`). A later refinement is pairing EN/FR
+  provision records into single bilingual cards. Needs provincial
   source data; not yet started.
 - **"Hiring" over-capture.** The `Hiring` rule keys on the very common `employee`/
   `employer` terms, so ~25% of the federal corpus lands there; a future pass could
@@ -178,4 +199,4 @@ being genuine fragment sub-clauses.
 
 _Generated as part of the repository code-review pass. Items under "Fixed in this
 pass", "Implemented after product decision", and "Follow-ups completed" are implemented
-and tested (730 tests passing). The "Noted" items are remaining future work._
+and tested (743 tests passing). The "Noted" items are remaining future work._

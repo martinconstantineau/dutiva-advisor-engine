@@ -96,6 +96,13 @@ export function adaptGeneratedGuidanceCard(card: GeneratedGuidanceCard): Guidanc
   const category = topicToCategory(card.topic);
   const citations = buildCitations(card);
 
+  // Promote a validated French answer to content_fr only when it is real French —
+  // never the placeholder marker. Absent for the current all-English corpus.
+  const contentFr =
+    card.advisor_answer_fr && !card.advisor_answer_fr.includes(FRENCH_PLACEHOLDER_MARKER)
+      ? card.advisor_answer_fr
+      : undefined;
+
   // Build keywords from topic + topics array
   const keywordSet = new Set<string>([
     card.topic.toLowerCase(),
@@ -110,8 +117,10 @@ export function adaptGeneratedGuidanceCard(card: GeneratedGuidanceCard): Guidanc
     province,
     title: `${card.topic}: ${card.citation || card.law_title}`,
     content: card.advisor_answer_en,
+    content_fr: contentFr,
     search_text: card.retrieval.search_text || card.advisor_answer_en,
     advisor_answer_en: card.advisor_answer_en,
+    advisor_answer_fr: contentFr,
     citations,
     keywords,
     federalOnly: province === 'FEDERAL',
