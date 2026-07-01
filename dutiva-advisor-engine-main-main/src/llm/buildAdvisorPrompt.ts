@@ -1,6 +1,7 @@
 import { AdvisorPipelineContext } from '../workspace/workspaceTypes';
 import { ScoredGuidanceItem } from '../retrieval/guidanceTypes';
 import { formatCitationList } from '../retrieval/citationValidation';
+import { localizedContent, localizedTitle } from '../bilingual/localizeGuidance';
 import { LLMMessage } from './provider';
 import type { WebSearchResult } from '../webSearch/webSearchTypes';
 
@@ -93,10 +94,14 @@ export function buildAdvisorPrompt(
   const lang = ctx.locale === 'fr' ? 'French' : 'English';
   const jurisdictionContext = buildJurisdictionContext(ctx);
 
+  // Serve validated French guidance text when responding in French; fall back to
+  // English text (never a placeholder) when a French version is not available.
   const guidanceContext = guidance
     .map((g, i) => {
       const citations = formatCitationList(g.citations);
-      return `[${i + 1}] ${g.title}\n${g.content}${citations ? `\nCitations: ${citations}` : ''}`;
+      const title = localizedTitle(g, ctx.locale);
+      const content = localizedContent(g, ctx.locale);
+      return `[${i + 1}] ${title}\n${content}${citations ? `\nCitations: ${citations}` : ''}`;
     })
     .join('\n\n');
 

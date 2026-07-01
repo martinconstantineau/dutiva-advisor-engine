@@ -159,8 +159,11 @@ const knowledgeBase: GuidanceItem[] = [
     category: 'termination',
     province: 'ON',
     title: 'Ontario Termination — ESA 2000 Minimums',
+    title_fr: 'Cessation d’emploi en Ontario — minimums de la LNE 2000',
     content:
       'The Employment Standards Act, 2000 sets minimum notice or pay in lieu: 1 week per year of service up to 8 weeks. Severance pay (1 week per year, up to 26 weeks) applies separately if the employer has a payroll of $2.5M+ or terminates 50+ employees in a 6-month period and the employee has 5+ years of service. Both minimums are a floor — common law may provide more.',
+    content_fr:
+      'La Loi de 2000 sur les normes d’emploi (LNE) fixe un préavis minimal ou une indemnité qui en tient lieu : 1 semaine par année de service, jusqu’à 8 semaines. Une indemnité de cessation d’emploi (1 semaine par année, jusqu’à 26 semaines) s’applique séparément si la masse salariale de l’employeur est de 2,5 M$ ou plus, ou s’il met fin à l’emploi de 50 salariés ou plus sur une période de 6 mois et que le salarié compte 5 ans de service ou plus. Ces minimums sont un plancher — la common law peut exiger davantage.',
     citations: [
       { statute: 'Employment Standards Act, 2000', section: 'ss. 54–62, 64–65', shortForm: 'ESA 2000 (ON)', url: 'https://www.ontario.ca/laws/statute/00e41' },
     ],
@@ -171,8 +174,11 @@ const knowledgeBase: GuidanceItem[] = [
     category: 'harassment',
     province: 'ON',
     title: 'Ontario Workplace Harassment — OHSA and Bill 168',
+    title_fr: 'Harcèlement au travail en Ontario — LSST et projet de loi 168',
     content:
       'Ontario employers must have a written workplace harassment policy, conduct investigations into complaints that are appropriate in the circumstances, and provide results to both parties. The OHSA defines workplace harassment broadly to include personal harassment. Workplace sexual harassment is a distinct category with additional obligations.',
+    content_fr:
+      'Les employeurs de l’Ontario doivent avoir une politique écrite contre le harcèlement au travail, mener sur les plaintes une enquête appropriée dans les circonstances et communiquer les résultats aux deux parties. La LSST définit le harcèlement au travail de façon large, y compris le harcèlement personnel. Le harcèlement sexuel au travail constitue une catégorie distincte assortie d’obligations supplémentaires.',
     citations: [
       { statute: 'Occupational Health and Safety Act', section: 'ss. 32.0.1–32.0.7', shortForm: 'OHSA (ON)', url: 'https://www.ontario.ca/laws/statute/90o01' },
     ],
@@ -183,8 +189,11 @@ const knowledgeBase: GuidanceItem[] = [
     category: 'accommodation',
     province: 'ON',
     title: 'Ontario Duty to Accommodate — Human Rights Code',
+    title_fr: 'Obligation d’accommodement en Ontario — Code des droits de la personne',
     content:
       'The Ontario Human Rights Code prohibits discrimination on 17 protected grounds including disability, family status, sex, and creed. Employers must accommodate to the point of undue hardship assessed by cost, outside sources of funding, and health and safety. The OHRC\'s Policy on Ableism and Discrimination Based on Disability is the key interpretive document.',
+    content_fr:
+      'Le Code des droits de la personne de l’Ontario interdit la discrimination fondée sur 17 motifs protégés, dont le handicap, l’état familial, le sexe et la croyance. L’employeur doit composer avec les besoins jusqu’au point de contrainte excessive, évaluée selon le coût, les sources extérieures de financement ainsi que la santé et la sécurité. La politique de la Commission ontarienne des droits de la personne (CODP) sur le capacitisme et la discrimination fondée sur le handicap constitue le principal document d’interprétation.',
     citations: [
       { statute: 'Human Rights Code', section: 'ss. 5, 11, 17', shortForm: 'OHRC (ON)', url: 'https://www.ontario.ca/laws/statute/90h19' },
     ],
@@ -195,8 +204,11 @@ const knowledgeBase: GuidanceItem[] = [
     category: 'leave',
     province: 'ON',
     title: 'Ontario Statutory Leaves — ESA 2000',
+    title_fr: 'Congés prévus par la loi en Ontario — LNE 2000',
     content:
       'Ontario provides: pregnancy leave (17 weeks), parental leave (up to 63 weeks), family medical leave (28 weeks), critical illness leave (up to 37 weeks for adults), domestic or sexual violence leave (10 days + 15 weeks), sick leave (3 days unpaid), and bereavement leave (2 days unpaid). All are job-protected.',
+    content_fr:
+      'L’Ontario prévoit : le congé de grossesse (17 semaines), le congé parental (jusqu’à 63 semaines), le congé familial pour raison médicale (28 semaines), le congé en cas de maladie grave (jusqu’à 37 semaines pour un adulte), le congé en cas de violence familiale ou sexuelle (10 jours + 15 semaines), le congé de maladie (3 jours non payés) et le congé de deuil (2 jours non payés). Tous sont protégés : l’emploi est garanti.',
     citations: [
       { statute: 'Employment Standards Act, 2000', section: 'Part XIV', shortForm: 'ESA 2000 (ON)' },
     ],
@@ -207,8 +219,11 @@ const knowledgeBase: GuidanceItem[] = [
     category: 'reprisal',
     province: 'ON',
     title: 'Ontario Reprisal Prohibition — ESA 2000',
+    title_fr: 'Interdiction des représailles en Ontario — LNE 2000',
     content:
       'Under the ESA 2000, it is prohibited to intimidate, dismiss, or penalize an employee for exercising a right under the Act, including asking questions about entitlements or filing an ESA complaint. Reprisal complaints are filed with the Ministry of Labour.',
+    content_fr:
+      'En vertu de la LNE 2000, il est interdit d’intimider, de congédier ou de pénaliser un salarié parce qu’il exerce un droit prévu par la Loi, notamment poser des questions sur ses droits ou déposer une plainte en vertu de la LNE. Les plaintes pour représailles sont déposées auprès du ministère du Travail.',
     citations: [
       { statute: 'Employment Standards Act, 2000', section: 's. 74', shortForm: 'ESA 2000 (ON)' },
     ],
@@ -219,8 +234,11 @@ const knowledgeBase: GuidanceItem[] = [
     category: 'workplace_safety',
     province: 'ON',
     title: 'Ontario Right to Refuse Unsafe Work — OHSA',
+    title_fr: 'Droit de refuser un travail dangereux en Ontario — LSST',
     content:
       'Ontario workers may refuse unsafe work under OHSA s. 43. The employer must investigate immediately with the worker and a worker representative. If unresolved, a Ministry of Labour inspector is called. Critical injuries must be reported to the Ministry within 48 hours.',
+    content_fr:
+      'Les travailleurs de l’Ontario peuvent refuser un travail dangereux en vertu de l’article 43 de la LSST. L’employeur doit faire enquête immédiatement avec le travailleur et un représentant des travailleurs. Si la situation n’est pas résolue, un inspecteur du ministère du Travail est appelé. Les blessures critiques doivent être signalées au ministère dans les 48 heures.',
     citations: [
       { statute: 'Occupational Health and Safety Act', section: 'ss. 43–46', shortForm: 'OHSA (ON)' },
     ],
@@ -231,8 +249,11 @@ const knowledgeBase: GuidanceItem[] = [
     category: 'compensation',
     province: 'ON',
     title: 'Ontario Pay, Hours, Overtime and Public Holidays — ESA 2000',
+    title_fr: 'Salaire, heures, temps supplémentaire et jours fériés en Ontario — LNE 2000',
     content:
       'Ontario\'s Employment Standards Act, 2000 sets a general minimum wage that is reviewed and adjusted annually (with separate rates for students and certain roles), so a current figure should always be confirmed against the Ontario Ministry of Labour rather than assumed. Overtime is generally payable at 1.5 times the regular rate after 44 hours in a work week. Vacation entitlement is two weeks (vacation pay of 4%) before five years of service and three weeks (6%) at five or more years. There are nine public holidays, with public holiday pay calculated under the ESA formula. Most deductions from wages require statutory authority, a court order, or the employee\'s written authorization.',
+    content_fr:
+      'La Loi de 2000 sur les normes d’emploi (LNE) de l’Ontario fixe un salaire minimum général révisé et ajusté chaque année (avec des taux distincts pour les étudiants et certains rôles); il faut donc toujours confirmer le taux courant auprès du ministère du Travail de l’Ontario plutôt que de le présumer. Le temps supplémentaire est généralement payable à 1,5 fois le taux horaire habituel après 44 heures dans une semaine de travail. Le droit aux vacances est de deux semaines (indemnité de 4 %) avant cinq ans de service et de trois semaines (6 %) à cinq ans ou plus. Il y a neuf jours fériés, l’indemnité étant calculée selon la formule de la LNE. La plupart des retenues sur le salaire exigent une autorisation légale, une ordonnance d’un tribunal ou l’autorisation écrite du salarié.',
     citations: [
       { statute: 'Employment Standards Act, 2000', section: 'Parts VII–XI', shortForm: 'ESA 2000 (ON)', url: 'https://www.ontario.ca/laws/statute/00e41' },
     ],
@@ -243,8 +264,11 @@ const knowledgeBase: GuidanceItem[] = [
     category: 'medical_disclosure',
     province: 'ON',
     title: 'Ontario Medical Information and Functional Limitations — Human Rights Code',
+    title_fr: 'Renseignements médicaux et limitations fonctionnelles en Ontario — Code des droits de la personne',
     content:
       'When accommodating a disability in Ontario, an employer may request the functional information needed to understand the employee\'s limitations and accommodation needs — not the diagnosis. The duty to accommodate flows from the Ontario Human Rights Code, and OHRC policy guidance distinguishes functional-abilities information from confidential medical diagnosis. Health information collected for accommodation must be kept confidential, stored securely, and shared only with those who need it to implement the accommodation. Health-sector employers may also be subject to PHIPA for personal health information.',
+    content_fr:
+      'Lorsqu’il accommode un handicap en Ontario, l’employeur peut demander les renseignements fonctionnels nécessaires pour comprendre les limitations du salarié et ses besoins d’accommodement — et non le diagnostic. L’obligation d’accommodement découle du Code des droits de la personne de l’Ontario, et les politiques de la CODP distinguent les renseignements sur les capacités fonctionnelles du diagnostic médical confidentiel. Les renseignements de santé recueillis aux fins d’accommodement doivent demeurer confidentiels, être conservés de façon sécuritaire et n’être communiqués qu’aux personnes qui en ont besoin pour mettre en œuvre l’accommodement. Les employeurs du secteur de la santé peuvent aussi être assujettis à la LPRPS pour les renseignements personnels sur la santé.',
     citations: [
       { statute: 'Human Rights Code', section: 'ss. 5, 11, 17', shortForm: 'OHRC (ON)', url: 'https://www.ontario.ca/laws/statute/90h19' },
     ],
@@ -258,8 +282,11 @@ const knowledgeBase: GuidanceItem[] = [
     category: 'termination',
     province: 'QC',
     title: 'Québec Termination — Act Respecting Labour Standards',
+    title_fr: 'Cessation d’emploi au Québec — Loi sur les normes du travail',
     content:
       'Under Québec\'s Act Respecting Labour Standards (ARLS/LNT), employees with 3+ months of uninterrupted service are entitled to a notice of termination or pay in lieu: 1 week (3 months–1 year), 2 weeks (1–5 years), 4 weeks (5–10 years), 8 weeks (10+ years). Employees with 2+ years may file a complaint for dismissal without good and sufficient cause (reinstatement available).',
+    content_fr:
+      'En vertu de la Loi sur les normes du travail (LNT) du Québec, le salarié qui justifie de 3 mois de service continu a droit à un préavis de cessation d’emploi ou à une indemnité qui en tient lieu : 1 semaine (3 mois à 1 an), 2 semaines (1 à 5 ans), 4 semaines (5 à 10 ans), 8 semaines (10 ans et plus). Le salarié qui justifie de 2 ans de service continu peut déposer une plainte pour congédiement sans cause juste et suffisante (la réintégration est possible).',
     citations: [
       { statute: 'Act Respecting Labour Standards', section: 'ss. 82, 124', shortForm: 'ARLS (QC)', url: 'https://www.legisquebec.gouv.qc.ca/en/document/cs/N-1.1' },
     ],
@@ -270,8 +297,11 @@ const knowledgeBase: GuidanceItem[] = [
     category: 'harassment',
     province: 'QC',
     title: 'Québec Psychological Harassment — ARLS ss. 81.18–81.20',
+    title_fr: 'Harcèlement psychologique au Québec — LNT art. 81.18 à 81.20',
     content:
       'Québec has had explicit statutory protection against psychological harassment since 2004. The ARLS defines it as vexatious conduct that is repeated, hostile or unwanted, affecting dignity or psychological integrity, and creating a harmful work environment. A single serious incident may qualify. Employers must take reasonable means to prevent and stop harassment. Complaints are filed with the CNESST within 2 years.',
+    content_fr:
+      'Le Québec protège explicitement contre le harcèlement psychologique depuis 2004. La LNT le définit comme une conduite vexatoire se manifestant par des comportements, des paroles, des actes ou des gestes répétés, hostiles ou non désirés, qui portent atteinte à la dignité ou à l’intégrité psychologique de la personne et entraînent un milieu de travail néfaste. Une seule conduite grave peut aussi constituer du harcèlement. L’employeur doit prendre les moyens raisonnables pour prévenir le harcèlement et le faire cesser. Les plaintes se déposent à la CNESST dans un délai de 2 ans.',
     citations: [
       { statute: 'Act Respecting Labour Standards', section: 'ss. 81.18–81.20', shortForm: 'ARLS (QC)' },
       { statute: 'Commission des normes, de l\'équité, de la santé et de la sécurité du travail', shortForm: 'CNESST', url: 'https://www.cnesst.gouv.qc.ca' },
@@ -283,8 +313,11 @@ const knowledgeBase: GuidanceItem[] = [
     category: 'accommodation',
     province: 'QC',
     title: 'Québec Duty to Accommodate — Charter of Human Rights and Freedoms',
+    title_fr: 'Obligation d’accommodement au Québec — Charte des droits et libertés de la personne',
     content:
       'In Québec, the duty to accommodate flows from the Charter of Human Rights and Freedoms (not the Human Rights Code). Protected grounds include handicap, sex, pregnancy, civil status, and more. The Commission des droits de la personne et des droits de la jeunesse (CDPDJ) is the enforcement body.',
+    content_fr:
+      'Au Québec, l’obligation d’accommodement découle de la Charte des droits et libertés de la personne (et non d’un « code » des droits de la personne). Les motifs protégés comprennent le handicap, le sexe, la grossesse, l’état civil et d’autres. La Commission des droits de la personne et des droits de la jeunesse (CDPDJ) est l’organisme chargé de l’application.',
     citations: [
       { statute: 'Charter of Human Rights and Freedoms', section: 'ss. 10, 16–20', shortForm: 'Québec Charter', url: 'https://www.legisquebec.gouv.qc.ca/en/document/cs/C-12' },
     ],
@@ -295,8 +328,11 @@ const knowledgeBase: GuidanceItem[] = [
     category: 'leave',
     province: 'QC',
     title: 'Québec Parental Leave — QPIP',
+    title_fr: 'Congé parental au Québec — RQAP',
     content:
       'Québec operates its own parental insurance plan (QPIP/RQAP) which provides more generous benefits than federal EI: maternity (18 weeks standard or 15 weeks special plan), paternity (5 weeks), parental (up to 32 weeks shared). Benefits begin immediately with no 2-week waiting period. All employees in QC contribute to QPIP, not EI maternity/parental.',
+    content_fr:
+      'Le Québec administre son propre régime d’assurance parentale (RQAP), qui offre des prestations plus généreuses que l’assurance-emploi fédérale : maternité (18 semaines au régime de base ou 15 semaines au régime particulier), paternité (5 semaines), parental (jusqu’à 32 semaines partageables). Les prestations débutent sans délai de carence de 2 semaines. Au Québec, les salariés cotisent au RQAP plutôt qu’au volet maternité/parental de l’assurance-emploi.',
     citations: [
       { statute: 'Act Respecting Parental Insurance', shortForm: 'QPIP/RQAP (QC)', url: 'https://www.rqap.gouv.qc.ca' },
       { statute: 'Act Respecting Labour Standards', section: 'ss. 81.1–81.17', shortForm: 'ARLS (QC)' },
@@ -308,8 +344,11 @@ const knowledgeBase: GuidanceItem[] = [
     category: 'reprisal',
     province: 'QC',
     title: 'Québec Reprisal Prohibition — ARLS',
+    title_fr: 'Interdiction des représailles au Québec — LNT',
     content:
       'The ARLS prohibits reprisals against employees who exercise rights under the Act, including filing CNESST complaints or participating in investigations. Sanctions include reinstatement and damages. The CNESST enforces reprisal complaints.',
+    content_fr:
+      'La LNT interdit les représailles (pratiques interdites) contre un salarié qui exerce un droit prévu par la Loi, notamment déposer une plainte à la CNESST ou participer à une enquête. Les sanctions comprennent la réintégration et des dommages-intérêts. La CNESST traite les plaintes pour pratiques interdites.',
     citations: [
       { statute: 'Act Respecting Labour Standards', section: 'ss. 122–123.1', shortForm: 'ARLS (QC)' },
     ],
@@ -320,8 +359,11 @@ const knowledgeBase: GuidanceItem[] = [
     category: 'workplace_safety',
     province: 'QC',
     title: 'Québec OHS — Act Respecting Occupational Health and Safety',
+    title_fr: 'Santé et sécurité du travail au Québec — Loi sur la santé et la sécurité du travail',
     content:
       'Québec\'s LSST gives workers the right to refuse work they have reasonable grounds to believe poses danger. Workers also have a right to preventive withdrawal for pregnant workers. The CNESST administers OHS in Québec. Employers must establish a prevention program and a joint OHS committee if they have 20+ employees.',
+    content_fr:
+      'La LSST du Québec confère au travailleur le droit de refuser d’exécuter un travail s’il a des motifs raisonnables de croire que celui-ci présente un danger. La travailleuse enceinte a aussi droit au retrait préventif. La CNESST administre la santé et la sécurité du travail au Québec. L’employeur doit mettre en place un programme de prévention et, s’il compte 20 travailleurs ou plus, un comité de santé et de sécurité.',
     citations: [
       { statute: 'Act Respecting Occupational Health and Safety', section: 'ss. 12, 32', shortForm: 'LSST (QC)', url: 'https://www.legisquebec.gouv.qc.ca/en/document/cs/S-2.1' },
     ],
@@ -332,8 +374,11 @@ const knowledgeBase: GuidanceItem[] = [
     category: 'compensation',
     province: 'QC',
     title: 'Québec Pay, Hours, Overtime and Statutory Holidays — Act Respecting Labour Standards',
+    title_fr: 'Salaire, heures, temps supplémentaire et jours fériés au Québec — Loi sur les normes du travail',
     content:
       'Under Québec\'s Act Respecting Labour Standards (LNT), the CNESST sets a general minimum wage that is reviewed annually (changes typically take effect May 1), with a separate lower rate for tipped employees — confirm the current rate with the CNESST rather than assuming a figure. The standard work week is 40 hours, after which overtime is payable at 1.5 times the regular wage (time off in lieu is possible by agreement). Annual leave increases with service: after one year of uninterrupted service, two weeks with vacation pay of 4%; after three years, three weeks at 6%. The LNT also provides statutory general holidays, in addition to the National Holiday (June 24).',
+    content_fr:
+      'En vertu de la Loi sur les normes du travail (LNT) du Québec, la CNESST fixe un salaire minimum général révisé chaque année (les changements prennent généralement effet le 1er mai), avec un taux distinct plus bas pour les salariés au pourboire — confirmez le taux courant auprès de la CNESST plutôt que de le présumer. La semaine normale de travail est de 40 heures; au-delà, le temps supplémentaire est payé à 1,5 fois le salaire horaire habituel (une reprise de temps est possible sur entente). Le congé annuel augmente avec l’ancienneté : après un an de service continu, deux semaines avec une indemnité de 4 %; après trois ans, trois semaines à 6 %. La LNT prévoit aussi des jours fériés, chômés et payés, en plus de la Fête nationale (24 juin).',
     citations: [
       { statute: 'Act Respecting Labour Standards', section: 'ss. 40–59.0.1', shortForm: 'ARLS / LNT (QC)', url: 'https://www.legisquebec.gouv.qc.ca/en/document/cs/N-1.1' },
     ],
@@ -344,8 +389,11 @@ const knowledgeBase: GuidanceItem[] = [
     category: 'medical_disclosure',
     province: 'QC',
     title: 'Québec Medical Information and Functional Limitations — Charter and Law 25',
+    title_fr: 'Renseignements médicaux et limitations fonctionnelles au Québec — Charte et Loi 25',
     content:
       'In Québec, the duty to accommodate flows from the Charter of Human Rights and Freedoms. An employer may request the functional information needed to assess accommodation, not the diagnosis. Employee personal information — including health information — is protected by the Act respecting the protection of personal information in the private sector (modernized by Law 25), which requires a serious and legitimate purpose for collection, consent or legal authority, confidentiality, and access limited to those who need it. Keep medical information to the functional limitations relevant to the job.',
+    content_fr:
+      'Au Québec, l’obligation d’accommodement découle de la Charte des droits et libertés de la personne. L’employeur peut demander les renseignements fonctionnels nécessaires pour évaluer l’accommodement, et non le diagnostic. Les renseignements personnels du salarié — y compris les renseignements de santé — sont protégés par la Loi sur la protection des renseignements personnels dans le secteur privé (modernisée par la Loi 25), qui exige un intérêt sérieux et légitime pour la collecte, le consentement ou une autorisation légale, la confidentialité, et un accès limité aux personnes qui en ont besoin. Limitez les renseignements médicaux aux limitations fonctionnelles pertinentes à l’emploi.',
     citations: [
       { statute: 'Charter of Human Rights and Freedoms', section: 'ss. 10, 16, 20', shortForm: 'Québec Charter', url: 'https://www.legisquebec.gouv.qc.ca/en/document/cs/C-12' },
       { statute: 'Act respecting the protection of personal information in the private sector', shortForm: 'Law 25 / P-39.1 (QC)' },

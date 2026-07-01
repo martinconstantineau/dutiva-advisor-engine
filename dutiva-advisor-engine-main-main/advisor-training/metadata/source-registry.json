@@ -88,7 +88,7 @@
       "last_checked_at": "2026-06-01",
       "last_updated_at": null,
       "status": "planned",
-      "notes": "Tracked source for Ontario employment standards coverage. Local raw ingestion and guidance-index inclusion still need a future source-ingestion pass."
+      "notes": "Tracked source for Ontario employment standards coverage. Place raw XML under advisor-training/raw-laws/canada/ontario/acts/ (auto-labelled 'Ontario' by advisor-training/pipelines/jurisdiction.ts) and run npm run pipeline:all. Interim coverage is provided by curated bilingual ON entries in src/retrieval/retrieveGuidance.ts. See advisor-training/PROVINCIAL_INGESTION.md."
     },
     {
       "source_id": "guide-ontario-esa",
@@ -114,7 +114,7 @@
       "last_checked_at": "2026-06-01",
       "last_updated_at": null,
       "status": "planned",
-      "notes": "Tracked source for Quebec labour-standards coverage. Local raw ingestion and guidance-index inclusion still need a future source-ingestion pass."
+      "notes": "Tracked source for Quebec labour-standards coverage. Place raw XML under advisor-training/raw-laws/canada/quebec/lois/ (auto-labelled 'Quebec'). Québec is officially bilingual — ingest BOTH the EN and FR files so build-guidance-layer emits validated advisor_answer_fr. Interim coverage is provided by curated bilingual QC entries in src/retrieval/retrieveGuidance.ts. See advisor-training/PROVINCIAL_INGESTION.md."
     },
     {
       "source_id": "law-quebec-charter-french-language",
