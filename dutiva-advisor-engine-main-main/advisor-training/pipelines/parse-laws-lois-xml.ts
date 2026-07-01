@@ -4,6 +4,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { XMLParser } from 'fast-xml-parser';
+import { inferJurisdiction, inferSource } from './jurisdiction';
 
 const DEFAULT_INPUT_DIR = path.resolve('advisor-training/raw-laws');
 const DEFAULT_OUTPUT_DIR = path.resolve('advisor-training/parsed');
@@ -354,8 +355,8 @@ function extractDocumentMetadata(root: XmlNode, sourceFile: string, xmlLangAttr 
   const language = inferLanguage(sourceFile, xmlLangAttr);
   return {
     source_file: sourceFile,
-    source: 'justicecanada/laws-lois-xml',
-    jurisdiction: 'Canada (Federal)',
+    source: inferSource(sourceFile),
+    jurisdiction: inferJurisdiction(sourceFile),
     language,
     law_title: extractLawTitle(root, sourceFile),
     short_title: firstText(root, ['ShortTitle']) || null,

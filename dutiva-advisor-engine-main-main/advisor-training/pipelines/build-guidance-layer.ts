@@ -52,6 +52,12 @@ function riskLead(riskLevel: string): string {
   return 'Lower-risk informational issue, but still confirm the facts and jurisdiction before relying on it.';
 }
 
+function riskLeadFr(riskLevel: string): string {
+  if (riskLevel === 'high') return 'Situation à risque élevé. Traitez-la avec prudence et envisagez une révision juridique ou RH avant d’agir.';
+  if (riskLevel === 'medium') return 'Situation à risque modéré. Consultez la source légale, documentez vos étapes et appliquez la règle de façon uniforme.';
+  return 'Situation informationnelle à faible risque, mais confirmez tout de même les faits et la juridiction avant de vous y fier.';
+}
+
 // Use eslint-disable-next-line @typescript-eslint/no-explicit-any only on the record parameter since it comes from JSON
 function makeAdvisorAnswer(record: Record<string, unknown>): string {
   const citation = record['citation'] || record['law_title'] || 'the applicable source';
@@ -68,6 +74,29 @@ function makeAdvisorAnswer(record: Record<string, unknown>): string {
     appliesTo,
     'Practical next step: confirm the employee location, governing jurisdiction, employment status, dates, and any written policy or contract before applying this guidance.',
     record['risk_level'] === 'high' ? 'Escalation: because this is high-risk, do not rely on this alone for a termination, harassment, accommodation, safety, or legal dispute decision.' : '',
+  ].filter(Boolean).join(' '));
+}
+
+/**
+ * Build a real French advisor answer from a French-language source record.
+ * Used when record.language === 'fr' (a bilingual/provincial French source), so the
+ * pipeline yields validated French guidance instead of the placeholder. Mirrors
+ * makeAdvisorAnswer. The adapter promotes this to content_fr at runtime.
+ */
+function makeFrenchAnswer(record: Record<string, unknown>): string {
+  const citation = record['citation'] || record['law_title'] || 'la source applicable';
+  const rawText = (record['plain_summary'] as string) || normalizeWhitespace(record['text']);
+  const summary = stripRepealBrackets(rawText).slice(0, 360);
+  const appliesTo = Array.isArray(record['applies_to']) && record['applies_to'].length
+    ? `Peut s’appliquer à : ${(record['applies_to'] as string[]).join(', ')}.`
+    : 'Confirmez à qui la règle s’applique avant d’agir.';
+  return normalizeWhitespace([
+    riskLeadFr(record['risk_level'] as string),
+    `Sujet : ${record['topic']}.`,
+    `D’après ${citation}, la règle ou le texte de source pertinent indique : ${summary}`,
+    appliesTo,
+    'Prochaine étape pratique : confirmez le lieu de travail de l’employé, la juridiction applicable, le statut d’emploi, les dates et toute politique ou tout contrat écrit avant d’appliquer ces renseignements.',
+    record['risk_level'] === 'high' ? 'Escalade : comme il s’agit d’une situation à risque élevé, ne vous fiez pas uniquement à ceci pour une décision de cessation d’emploi, de harcèlement, d’accommodement, de sécurité ou de litige.' : '',
   ].filter(Boolean).join(' '));
 }
 
@@ -101,6 +130,10 @@ function makeGuidanceCard(record: Record<string, unknown>, sourceFile: string): 
     user_questions: questions,
     advisor_answer_en: makeAdvisorAnswer(record),
     advisor_answer_fr_placeholder: makeFrenchPlaceholder(record),
+    // Real French answer only for French-language sources; omitted (undefined → not
+    // serialized) for the current all-English corpus so nothing changes until a
+    // French/provincial source is ingested.
+    advisor_answer_fr: record['language'] === 'fr' ? makeFrenchAnswer(record) : undefined,
     legal_basis: [record['citation'], record['law_title']].filter(Boolean),
     guardrails: {
       disclaimer_en: DISCLAIMER_EN,

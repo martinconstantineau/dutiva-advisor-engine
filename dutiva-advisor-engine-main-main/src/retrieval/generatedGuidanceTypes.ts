@@ -43,6 +43,13 @@ export interface GeneratedGuidanceCard {
   user_questions: string[];
   advisor_answer_en: string;
   advisor_answer_fr_placeholder: string;
+  /**
+   * Optional validated French answer, populated by build-guidance-layer when the
+   * source record is French-language. Absent (or equal to the placeholder) for the
+   * current all-English federal corpus. The adapter promotes it to content_fr only
+   * when it is real French (not the placeholder).
+   */
+  advisor_answer_fr?: string;
   legal_basis: string[];
   guardrails: GeneratedGuidanceGuardrails;
   retrieval: GeneratedGuidanceRetrieval;
